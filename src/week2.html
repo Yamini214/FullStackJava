@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <title>Student Form</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        form { max-width: 300px; margin: auto; }
+        input, select, button { width: 100%; padding: 8px; margin: 6px 0; }
+        .error { color: red; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+<h2>Student Form</h2>
+<form id="studentForm">
+    <input type="text" id="name" placeholder="Full Name"><br>
+    <input type="email" id="email" placeholder="Email"><br>
+    <input type="number" id="age" placeholder="Age"><br>
+    <select id="course">
+        <option value="">Select Course</option>
+        <option value="BCA">BCA</option>
+        <option value="MCA">MCA</option>
+    </select><br>
+    <span id="error-msg" class="error"></span><br>
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+    document.getElementById("studentForm").addEventListener("submit", function(e) {
+      e.preventDefault(); // stop form refresh
+      let name = document.getElementById("name").value;
+      let email = document.getElementById("email").value;
+      let age = document.getElementById("age").value;
+      let course = document.getElementById("course").value;
+      let error = document.getElementById("error-msg");
+
+      if(name==="" || email==="" || age==="" || course===""){
+        error.textContent = "⚠️ All fields required!";
+      } else {
+        error.textContent = "";
+        alert(" Form Submitted!");
+      }
+    });
+</script>
+
+</body>
+</html>
